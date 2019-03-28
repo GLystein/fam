@@ -31,8 +31,8 @@ Loop: @ while counter < 100
         add r0, #1 @ now X = aX+c 
         and r0, r0, r5 @ now X = (aX+c) mod m 
         mov r8, r0 @ save X in r8 temporarily 
-        lsr a0, a0, 8 @ divide by 256 (use upper 8 bits) 
-        cmp a0, r7 @ check size 
+        lsr R9, R9, #8 @ divide by 256 (use upper 8 bits) 
+        cmp R9, r7 @ check size 
         bge Loop @ only want those < 100 
 @print
         ldr r0, =format 
