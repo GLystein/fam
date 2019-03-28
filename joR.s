@@ -44,7 +44,7 @@ Loop: @ while counter < 100
 @End_of_Loop
         b loop
 Exit: ldr lr, =return 
-lrd lr, [lr] @ standard return to OS 
+ldr lr, [lr] @ standard return to OS 
 bx lr        
 
 .data 
