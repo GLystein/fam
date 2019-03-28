@@ -40,11 +40,11 @@ Loop: @ while counter < 100
 @Store 
         mov r0, r8 @ put X back 
         ldr r1, =list @ prepare to store 
-        str r0, r1, [r6,#-4] @ store and then decrement counter 
+        str r0,[r6,#-4] @ store and then decrement counter 
 @End_of_Loop
         b loop
 Exit: ldr lr, =return 
-lrd lr, lr @ standard return to OS 
+lrd lr, [lr] @ standard return to OS 
 bx lr        
 
 .data 
