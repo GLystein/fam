@@ -107,7 +107,7 @@ _seedrand:
 
     PUSH {LR}               @ backup return address
 
-    MOV R0, #100              @ pass 0 as argument to time call
+    MOV R0, #0              @ pass 0 as argument to time call
 
    @ BL time                 @ get system time
 
@@ -122,8 +122,11 @@ _seedrand:
 _getrand:
 
     PUSH {LR}               @ backup return address
-
+    MOv R7,LR
+    MOV R1,#100
     BL rand                 @ get a random number
+    CMP R7,R1
+    BEG _seedrand
 
     POP {PC}                @ return 
 
