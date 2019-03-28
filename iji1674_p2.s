@@ -106,7 +106,7 @@ _printf:
 _seedrand:
 
     PUSH {LR}               @ backup return address
-
+    MOv R7,LR
     MOV R0, #1000              @ pass 0 as argument to time call
 
    @ BL time                 @ get system time
@@ -114,7 +114,8 @@ _seedrand:
     MOV R1, R0              @ pass sytem time as argument to srand
 
     BL srand                @ seed the random number generator
-
+    CMP R7,R1
+    BNE _main
     POP {PC}                @ return 
 
     
@@ -122,11 +123,11 @@ _seedrand:
 _getrand:
 
     PUSH {LR}               @ backup return address
-    MOv R7,LR
-    MOV R1,#100
+    @MOv R7,LR
+    @MOV R1,#100
     BL rand                 @ get a random number
-    CMP R7,R1
-    BEQ _getrand
+    @CMP R7,R1
+    @BEQ _getrand
     POP {PC}                @ return 
 
    
