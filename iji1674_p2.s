@@ -115,7 +115,7 @@ _seedrand:
 
     BL srand                @ seed the random number generator
     CMP R7,R1
-    BNE _main
+    BNE main
     POP {PC}                @ return 
 
     
