@@ -21,7 +21,7 @@ add r5, r5, #0xFF @ mask = m-1 = 0x0000FFFF
 add r8,r8,#0x18c
 /*LDR R7, #100 @ limit - initialized so values 0-99*/ 
 
- add r9,r9 #0x64
+ add r9,r9,#0x64
 
 
 Loop: @ while counter < 100 
