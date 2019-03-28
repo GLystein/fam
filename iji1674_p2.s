@@ -114,7 +114,7 @@ _seedrand:
     MOV R1, R0              @ pass sytem time as argument to srand
 
     BL srand                @ seed the random number generator
-    CMP R7,R1
+    CMP R1,R7
     BNE main
     POP {PC}                @ return 
 
