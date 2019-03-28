@@ -107,7 +107,7 @@ _seedrand:
 
     PUSH {LR}               @ backup return address
 
-    MOV R0, #1000              @ pass 0 as argument to time call
+    MOV R0, #100              @ pass 0 as argument to time call
 
    @ BL time                 @ get system time
 
