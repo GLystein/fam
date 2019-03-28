@@ -24,7 +24,7 @@ add r8,r8,#0x18c
  add r9,r9,#0x64
 
 
-Loop: @ while counter < 100 
+loop: @ while counter < 100 
         cmp r6, #0 @ check counter 
         blt Exit @ Stop when counter passes zero 
         mul r0, r0, r4 @ X = aX (mul works like this) 
