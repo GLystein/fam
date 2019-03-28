@@ -122,11 +122,11 @@ _seedrand:
 _getrand:
 
     PUSH {LR}               @ backup return address
-    MOv R7,LR
-    MOV R1,#100
+    @MOv R7,LR
+    @MOV R1,#100
     BL rand                 @ get a random number
-    CMP R7,R1
-    BEQ _seedrand
+    @CMP R7,R1
+    @BEQ _seedrand
 
     POP {PC}                @ return 
 
