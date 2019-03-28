@@ -126,7 +126,7 @@ _getrand:
     MOV R1,#100
     BL rand                 @ get a random number
     CMP R7,R1
-    BEG _seedrand
+    BEQ _seedrand
 
     POP {PC}                @ return 
 
