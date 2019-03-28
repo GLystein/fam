@@ -107,7 +107,7 @@ _seedrand:
 
     PUSH {LR}               @ backup return address
 
-    MOV R0, #0              @ pass 0 as argument to time call
+    MOV R0, #1000              @ pass 0 as argument to time call
 
    @ BL time                 @ get system time
 
@@ -122,12 +122,11 @@ _seedrand:
 _getrand:
 
     PUSH {LR}               @ backup return address
-    @MOv R7,LR
-    @MOV R1,#100
+    MOv R7,LR
+    MOV R1,#100
     BL rand                 @ get a random number
-    @CMP R7,R1
-    @BEQ _seedrand
-
+    CMP R7,R1
+    BEQ _getrand
     POP {PC}                @ return 
 
    
@@ -144,7 +143,7 @@ printf_str:     .asciz      "a[%d] = %d\n"
 
 debug_str:
 
-.asciz "R%-2d   0x%08X  %011d \n"
+.asciz "R%-d   0x%08X  %04d \n"
 
 exit_str:       .ascii      "Terminating program.\n"
 
