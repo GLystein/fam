@@ -24,7 +24,7 @@ add r8,r8,#0x18c
  add r9,r9,#0x64
 
 
-loop: @ while counter < 100 
+Loop: @ while counter < 100 
         cmp r6, #0 @ check counter 
         blt Exit @ Stop when counter passes zero 
         mul r0, r0, r4 @ X = aX (mul works like this) 
@@ -42,7 +42,7 @@ loop: @ while counter < 100
         ldr r1, =list @ prepare to store 
         str r0,[r6,#-4] @ store and then decrement counter 
 @End_of_Loop
-        b loop
+        b Loop
 Exit: ldr lr, =return 
 ldr lr, [lr] @ standard return to OS 
 bx lr        
